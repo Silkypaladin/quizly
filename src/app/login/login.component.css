@@ -1,0 +1,52 @@
+h1, h2 {
+    color: #293462;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100%;
+}
+
+.header {
+    height: 70vh;
+    width: 50vh;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0,0,0,.12);
+    background-color: white;
+    padding: 10px;
+}
+
+.btn-box {
+    margin: 30px auto;
+    width: 200px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+}
+
+.btn-box a {
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.toggle-btn::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid #20e3b2;
+    width: 0;
+    -webkit-transition: 0.3s ease;
+        transition: 0.3s ease;
+}
+
+.toggle-btn:hover::after {
+    width: 100%;
+}
+
+.clicked {
+    background-color:   #20e3b2;
+}

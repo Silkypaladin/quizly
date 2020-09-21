@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 1em;
+    background: linear-gradient(to right, #29ffc6, #20e3b2,#0cebeb);
+}
