@@ -1,18 +1,13 @@
-h1, h2 {
-    color: #293462;
-}
-
 .wrapper {
     height: 100vh;
     width: 100%;
 }
 
 .header {
-    height: 70vh;
+    height: 40vh;
     width: 50vh;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0,0,0,.12);
     background-color: white;
-    padding: 10px;
 }
 
 .btn-box {
@@ -20,33 +15,48 @@ h1, h2 {
     width: 200px;
 }
 
-.toggle-btn {
-    padding: 10px 30px;
-    cursor: pointer;
-    border: 0;
+h2 {
+    margin: 0;
+    padding: 20px;
+    background-color:#ddf8ed;
+    border-bottom: 1px solid #20e3b2;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+.form-group label {
+    padding-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    height: 2.4em;
+    box-sizing: border-box;
+    transition: 0.3s;
     outline: none;
-    background-color: transparent;
+    border: 1px solid  #DFDCE3;
 }
 
-.btn-box a {
-    color: black;
+.form-group input:focus {
+  box-shadow: 0 0 5px #20e3b2;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #20e3b2;
+}
+
+.pi {
+    font-size: 1rem;
+    margin-right: .3rem;
+}
+
+.register-link {
+    margin-top: 20px;
     text-decoration: none;
-    font-weight: bolder;
 }
 
-.toggle-btn::after {
-    content: '';
-    display: block;
-    border-bottom: 3px solid #20e3b2;
-    width: 0;
-    -webkit-transition: 0.3s ease;
-        transition: 0.3s ease;
-}
-
-.toggle-btn:hover::after {
-    width: 100%;
-}
-
-.clicked {
-    background-color:   #20e3b2;
+.register-link:hover {
+    color: #144b79;
+    text-decoration: underline;
 }
