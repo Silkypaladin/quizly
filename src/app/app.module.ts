@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {PasswordModule} from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {ButtonModule} from 'primeng/button';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    PasswordModule
     
   ],
   providers: [],

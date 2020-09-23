@@ -10,39 +10,23 @@
     background-color: white;
 }
 
-.btn-box {
-    margin: 30px auto;
-    width: 200px;
-}
-
 h2 {
     margin: 0;
     padding: 20px;
     background-color:#f3f5f7;
 }
 
-.form-group {
-    margin: 20px;
+.input-group {
+    margin: 1.5rem;
 }
 
-.form-group label {
-    padding-bottom: 8px;
-    font-size: 0.9rem;
+.input-group .p-field label, input {
+    width: 100%;
 }
 
-.form-group input {
-    height: 2.4em;
-    box-sizing: border-box;
-    transition: 0.3s;
-    outline: none;
-    border: 1px solid  #DFDCE3;
-}
-
-.form-group input:focus {
-  box-shadow: 0 0 5px #ACB4E7;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid #ACB4E7;
+.input-group .p-field {
+    margin: 0;
+    width: 100%;
 }
 
 .pi {
@@ -50,9 +34,18 @@ h2 {
     margin-right: .3rem;
 }
 
+.btn {
+    margin: 0 1.5rem;
+}
+
+.btn button {
+    width: 100%;
+}
+
 .register-link {
     margin-top: 20px;
     text-decoration: none;
+    text-align: center;
 }
 
 .register-link:hover {
