@@ -18,8 +18,7 @@
 h2 {
     margin: 0;
     padding: 20px;
-    background-color:#ddf8ed;
-    border-bottom: 1px solid #20e3b2;
+    background-color:#f3f5f7;
 }
 
 .form-group {
@@ -40,10 +39,10 @@ h2 {
 }
 
 .form-group input:focus {
-  box-shadow: 0 0 5px #20e3b2;
+  box-shadow: 0 0 5px #ACB4E7;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #20e3b2;
+  border: 1px solid #ACB4E7;
 }
 
 .pi {
