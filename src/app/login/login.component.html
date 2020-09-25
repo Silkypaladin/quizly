@@ -1,26 +1,35 @@
 <div class="p-d-flex p-jc-center p-ai-center wrapper">
     <div class="header">
         <h2>Login</h2>
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="input-group p-d-flex p-jc-center p-ai-center">
                 <div class="p-field p-d-flex p-flex-column">
                     <label for="username">Username</label>
-                    <input id="username" type="text" pInputText> 
+                    <input id="username" type="text" formControlName="username" [ngClass]="{ 'p-invalid': submitted && input()['username'].errors }" pInputText>
+                    <div *ngIf="submitted && input()['username'].errors">
+                        <small *ngIf="input()['username'].errors['required']" id="username-help" class="p-invalid">Username is required.</small>
+                    </div> 
                 </div>
             </div>
 
             <div class="input-group p-d-flex p-jc-center p-ai-center">
                 <div class="p-field p-d-flex p-flex-column">
                     <label for="password">Password</label>
-                    <input id="password" type="password" promptLabel="Password strength" pPassword />
+                    <input id="password" type="password" formControlName="password" 
+                        promptLabel="Password strength" [ngClass]="{ 'p-invalid': submitted && input()['password'].errors }" pPassword />
+                    <div *ngIf="submitted && input()['password'].errors">
+                        <small *ngIf="input()['password'].errors['required']" id="password-help" class="p-invalid">Password is required.</small>
+                        <small *ngIf="length()" id="password-help" class="p-invalid">Password too short.</small>
+                    </div>
                 </div>
             </div>
             
             <div class="btn p-d-flex p-flex-column p-jc-center p-ai-center">       
-                <button [disabled]="loading" pButton type="button" label="Login">
+                <button [disabled]="loading" pButton label="Login">
                     <i *ngIf="loading" class="pi pi-spin pi-spinner"></i>
                 </button>
-                <a href="register" class="register-link">Don't have an account? <strong>Create one!</strong></a>                 
+                <a href="register" class="link">Don't have an account? <strong>Create one!</strong></a>                 
+                <a href="register" class="link forgot">Forgot password?</a>                 
             </div>
         </form>
 </div>

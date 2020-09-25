@@ -1,1 +1,56 @@
-<p>register works!</p>
+<div class="p-d-flex p-jc-center p-ai-center wrapper">
+    <div class="header">
+        <h2>Register</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="input-group p-d-flex p-jc-center p-ai-center">
+                <div class="p-field p-d-flex p-flex-column">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" formControlName="username" [ngClass]="{ 'p-invalid': submitted && input()['username'].errors }" pInputText>
+                    <div *ngIf="submitted && input()['username'].errors">
+                        <small *ngIf="input()['username'].errors['required']" id="username-help" class="p-invalid">Username is required.</small>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="input-group p-d-flex p-jc-center p-ai-center">
+                <div class="p-field p-d-flex p-flex-column">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" formControlName="email" [ngClass]="{ 'p-invalid': submitted && input()['email'].errors }" pInputText>
+                    <div *ngIf="submitted && input()['email'].errors">
+                        <small *ngIf="input()['email'].errors['required']" id="username-help" class="p-invalid">Email is required.</small>
+                        <small *ngIf="input()['email'].errors['email']" id="username-help" class="p-invalid">Email address incorrect!</small>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="input-group p-d-flex p-jc-center p-ai-center">
+                <div class="p-field p-d-flex p-flex-column">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" formControlName="password" feedback="false"
+                        promptLabel="Password strength" [ngClass]="{ 'p-invalid': submitted && input()['password'].errors }" pPassword />
+                    <div *ngIf="submitted && input()['password'].errors">
+                        <small *ngIf="input()['password'].errors['required']" id="password-help" class="p-invalid">Password is required.</small>
+                        <small *ngIf="length()" id="password-help" class="p-invalid">Password too short.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group p-d-flex p-jc-center p-ai-center">
+                <div class="p-field p-d-flex p-flex-column">
+                    <label for="password-repeat">Repeat password</label>
+                    <input id="password-repeat" type="password" formControlName="passwordRepeat" 
+                        promptLabel="Password strength" [ngClass]="{ 'p-invalid': submitted && input()['passwordRepeat'].errors }" pPassword />
+                    <div *ngIf="submitted && input()['passwordRepeat'].errors">
+                        <small *ngIf="input()['passwordRepeat'].errors['required']" id="password-help" class="p-invalid">Password is required. </small>
+                        <small *ngIf="passwordsNotMatching()" id="password-help" class="p-invalid">Passwords are different!</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn p-d-flex p-flex-column p-jc-center p-ai-center">       
+                <button [disabled]="loading" pButton label="Login">
+                    <i *ngIf="loading" class="pi pi-spin pi-spinner"></i>
+                </button>         
+            </div>
+        </form>
+</div>
