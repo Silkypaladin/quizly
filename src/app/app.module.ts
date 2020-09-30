@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {PasswordModule} from 'primeng/password';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    HttpClientModule
     
   ],
   providers: [],

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { mapTo, tap, catchError } from 'rxjs/operators'
-
+import { User } from '../models/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,10 +23,9 @@ export class AuthService {
    
 
    login(username, password) {
-     let headers = new HttpHeaders().set('Authorization', 'Basic' + btoa('username:password'));
-     
-     
-     return this.http.get('api/login', {headers}).pipe(
+     let headers = new HttpHeaders().set('Authorization', 'Basic ' + window.btoa(`${username}:${password}`));
+         
+     return this.http.get('http://127.0.0.1:5000/api/login', {headers}).pipe(
        tap(res => this.performUserLogin(res)),
        mapTo(true),
        catchError(err => {

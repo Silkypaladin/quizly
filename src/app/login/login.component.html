@@ -19,7 +19,6 @@
                         promptLabel="Password strength" [ngClass]="{ 'p-invalid': submitted && input()['password'].errors }" pPassword />
                     <div *ngIf="submitted && input()['password'].errors">
                         <small *ngIf="input()['password'].errors['required']" id="password-help" class="p-invalid">Password is required.</small>
-                        <small *ngIf="length()" id="password-help" class="p-invalid">Password too short.</small>
                     </div>
                 </div>
             </div>

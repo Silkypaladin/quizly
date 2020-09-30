@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { AuthService } from '../services/auth.service';
+import { first } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,12 +14,15 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required]]
     });
   }
 
@@ -25,13 +30,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  length() {
-    let obj = this.loginForm.controls['password'].errors.minlength;
-    if (obj === undefined) {
-      return false
-    }
-    return obj['requiredLength'] > obj['actualLength']
-  }
+
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -40,8 +39,9 @@ export class LoginComponent implements OnInit {
 
   this.loading = true;
 
-  // display form values on success
-  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value, null, 4));
+  this.authService.login(this.input().username.value, this.input().password.value).pipe(first())
+  .subscribe(data => this.router.navigate(['/register']), error => console.log(error));
+  
   }
 
 }
