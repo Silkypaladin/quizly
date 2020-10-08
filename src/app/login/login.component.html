@@ -15,7 +15,7 @@
             <div class="input-group p-d-flex p-jc-center p-ai-center">
                 <div class="p-field p-d-flex p-flex-column">
                     <label for="password">Password</label>
-                    <input id="password" type="password" formControlName="password" 
+                    <input id="password" type="password" formControlName="password" [feedback]="false" 
                         promptLabel="Password strength" [ngClass]="{ 'p-invalid': submitted && input()['password'].errors }" pPassword />
                     <div *ngIf="submitted && input()['password'].errors">
                         <small *ngIf="input()['password'].errors['required']" id="password-help" class="p-invalid">Password is required.</small>
